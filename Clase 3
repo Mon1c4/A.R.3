@@ -1,0 +1,99 @@
+# A.R.3
+#10/08/2017
+
+
+#Ejercicio:
+#Generar 3 secuencias que generen los siguentes datos:}
+# 1. 1000 datos que se generen de 3 en 3 y pedir a R el dato 300 del vector generado
+#2. 450 datos que su secuencia sea de 50 datos en 50 datos, pedir el dato 10
+#4. 2000 datos que su secuencia sea de .3 en .3
+
+#Solución:
+
+seq1<-seq(3,3001,3)
+seq1
+seq1[300]
+
+
+seq2<-seq(50,22500,50)
+seq2
+seq2[10]
+
+seq3<-seq(.3,600,by=.3)
+seq3
+
+
+
+
+#Ejercicio 2:
+# 1. Suponemos una empresa que quiere estimar una pensión para sus trabajadores con base en:
+#La antigüedad, por lo que se requiere estimar una muestra de 500 trabajadores y que sus rangos de ant_
+#sean desde 0 hasta 30 años, pedir a R el último dato de esta muestra
+#2. Generar una muestra de 50 mil datos que tengan un rango de cero hasta cien mil
+#3. Generar una muestra de 50 datos que tengan un rango de 10 a 19, pedir a R los datos 34,43,49
+
+
+
+Trabajador<-sample(0:30,500,replace=T)
+Trabajador
+Trabajador[500]
+
+datos<-sample(0:100000,50000,replace=T)
+# data.frame (sample(0:100000,50000,replace=T))
+datos
+
+
+d2<-sample(10:19,50,replace=T)
+d2
+d2[34];d2[43];d2[49]
+d2[c(34,43,49)]
+
+
+#MATRICES
+
+e<-1:10 # vector
+View(e)
+
+#para convertir en matriz
+dim(e)<-c(2,5) #matriz de 2 renglones y 5 columnas
+View(e) 
+class(e)
+dim(e)<-c(5,2)
+View(e)
+
+#para mandar llamar especdicaente un dato de la matriz
+#Dato de la matriz
+e[5,2] #aquí mando a llamar el dato del renglón 5 y columna 2
+e[3,2]
+e[2,2]
+e[,2] #valores columna 2
+e[3,] #valores fila 3
+
+#con la función matrix
+
+f<- matrix(110:119,nrow = 5,ncol = 2,byrow = T) #byrow es para ordenar por filas
+f
+g<- matrix(1:10,nrow = 5,ncol = 2)
+g
+
+#también se le pueden asignar nombres a rengones y columnas de las matrices
+rownames(f)<-c("manzana","naranja","piña","melón","mango")
+colnames(f)<-c("M1","M2")
+
+#si tenbemos una matriz grande y queremos saber el nombre de una columna
+colnames(f)
+rownames(f)
+
+#para saber los datos de una columna
+
+f["manzana","M2"]
+View(f)
+
+#otra forma de generar matrices 
+i<-rbind(1:2,4:3,c(5,6),c(2,7),c(8,9)) #se puede definir de las dos formas (:) y c()
+i
+#cada argumento se define un renglon
+
+j<-cbind(5:3,c(4,5,6),9:7,c(1,5,7),3:5)
+j
+# se definen las columnas
